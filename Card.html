@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Credit Card Validation</title>
+    <script>
+        function validateCreditCardNumber() {
+            const cardNumber = document.getElementById('cardNumber').value;
+
+            const regexAmex = /^3[47]\d{13}$/;
+            const regexMasterCard = /^5[1-5]\d{14}$/;
+            const regexVisa = /^4(\d{12}|\d{15})$/;
+            const regexDiscover = /^6011(\d{12}|\d{15})$/;
+            const regexDinersClub = /^3(0[0-5]|[68]\d)\d{11}$/;
+
+            var cardType = '';
+            var isValid = false;
+
+            if (regexAmex.test(cardNumber)) {
+                cardType = 'American Express';
+                isValid = true;
+            } else if (regexMasterCard.test(cardNumber)) {
+                cardType = 'MasterCard';
+                isValid = true;
+            } else if (regexVisa.test(cardNumber)) {
+                cardType = 'VISA';
+                isValid = true;
+            } else if (regexDiscover.test(cardNumber)) {
+                cardType = 'Discover';
+                isValid = true;
+            } else if (regexDinersClub.test(cardNumber)) {
+                cardType = 'Diners Club';
+                isValid = true;
+            }
+
+            if (isValid) {
+                document.getElementById('result').textContent = 'Valid ' + cardType + ' card number.';
+                document.getElementById('result').style.color = 'green';
+            } else {
+                document.getElementById('result').textContent = 'Invalid card number.';
+                document.getElementById('result').style.color = 'red';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Credit Card Validation</h1>
+    <label for="cardNumber">Credit Card Number:</label>
+    <input type="text" id="cardNumber" placeholder="Enter credit card number" />
+    <button onclick="validateCreditCardNumber()">Validate</button>
+    <p id="result"></p>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Validator</title>
+</head>
+<body>
+  <h2>Credit Card Validator</h2>
+  <form id="creditCardForm" onsubmit="return validateCreditCard()">
+    <label for="cardNumber">Enter Credit Card Number:</label>
+    <input type="text" id="cardNumber" required><br>
+    <span id="error" style="color: red;"></span><br>
+    <input type="submit" value="Validate">
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>-->

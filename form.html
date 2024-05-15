@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Student Registration Form</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required maxlength="30" pattern="[A-Za-z]+"><br>
+    
+    <label for="registerNumber">Register Number:</label>
+    <input type="text" id="registerNumber" required><br>
+    
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" required><br>
+    
+    <label for="program">Program:</label>
+    <input type="text" id="program" required><br>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+    
+    <label for="tempAddress">Temporary Address:</label>
+    <textarea id="tempAddress" required></textarea><br>
+    
+    <label for="permanentAddress">Permanent Address:</label>
+    <textarea id="permanentAddress"></textarea><br>
+    
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" required pattern="\d{10}"><br>
+    
+    <input type="checkbox" id="sameAddressCheckbox">
+    <label for="sameAddressCheckbox">Permanent address is same as temporary address</label><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
